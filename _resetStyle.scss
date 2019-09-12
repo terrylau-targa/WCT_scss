@@ -5,3 +5,10 @@
 div.elementor-column:first-child, div.elementor-column:last-child, .elementor-element-29870f8 > div {
     padding: 0 !important;
 }
+
+
+.elementor-column-gap-default>.elementor-row>.elementor-column>.elementor-element-populated {
+    @include mediaWidth($ipad) {
+        padding: $mobile-padding;
+    }
+}

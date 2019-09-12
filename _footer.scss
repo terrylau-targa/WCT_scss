@@ -1,0 +1,40 @@
+@import '_font';
+@import '_value';
+@import '_mixin';
+
+
+#footer {
+    background: url("../img/footer_bg.jpg") no-repeat 100% center;
+    padding: 50px $desktop-padding 30px;
+
+    p {
+        @include fontSize($h14);
+        color: $topheader-grey;
+        line-height: 1.4;
+    }
+
+    h3 {
+        @include fontSize($h18, true);
+        margin-bottom: 10px !important;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .custom-logo-link {
+        img {
+            width: 300px;
+        }
+    }
+
+    .wct-des {
+        margin-top: 15px;
+    }
+
+    .footer-links {
+        a {
+            font-size: $h14;
+            color: $topheader-grey;
+            font-weight: 500;
+        }
+    }
+}

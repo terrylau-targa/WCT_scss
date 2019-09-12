@@ -15,6 +15,10 @@
     color: $topheader-grey;
     padding: 0 $desktop-padding;
 
+    @include mediaWidth($ipad) {
+        @include displayNone();
+    }
+
     #pre-header-core {
         max-width: 100%;
     }
@@ -62,6 +66,10 @@
 //Header
 #header-core {
     padding: 0 $desktop-padding;
+
+    @include mediaWidth($ipad) {
+        padding: 0 $mobile-padding;
+    }
 }
 
 
@@ -70,6 +78,11 @@
 #logo {
     margin: 15px auto 0;
     height: 100%;
+
+    @include mediaWidth($ipad) {
+        padding: 10px 15px 10px 0;
+        margin: 10px auto;
+    }
 
     img {
         max-height: 45px;
@@ -123,15 +136,27 @@ h1 {
 }
 
 //Custom title
-.page-title {
+.wct-title {
     color: $black !important;
+
+    @include mediaWidth($ipad) {
+        
+        h1 {
+            text-align: center;
+        }
+    }
 }
 
 .section-title {
     margin-bottom: 10px !important;
 
-    h3 {
+    h2,  h3 {
         @include fontSize($h36);
+
+        @include mediaWidth($ipad) {
+            @include fontSize($h24);
+            text-align: center;
+        }
     }
 }
 
@@ -158,16 +183,52 @@ h1 {
     border: 1px solid $grey-light;
     border-bottom: 0;
 
-    thead {
-        td {
-            padding-bottom: 0;
-        }
-    }
-
     .counter-table {
         margin: 0;
         border-spacing: 10px;
         border-collapse: separate;
+        @include displayflex();
+        flex-wrap: wrap;
+
+        >div {
+            text-align: center;
+            @include flexBasis(20%);
+
+            @include mediaWidth($ipad) {
+                @include flexBasis(50%);
+                padding: 5px;
+            }
+
+            &:nth-of-type(1) {
+                @include mediaWidth($ipad) {
+                    order: 1;
+                }
+            }
+
+            &:nth-of-type(2) {
+                @include mediaWidth($ipad) {
+                    order: 3;
+                }
+            }
+
+            &:nth-of-type(3) {
+                @include mediaWidth($ipad) {
+                    order: 4;
+                }
+            }
+
+            &:nth-of-type(4) {
+                @include mediaWidth($ipad) {
+                    order: 2;
+                }
+            }
+
+            &:nth-of-type(5) {
+                @include mediaWidth($ipad) {
+                    order: 5;
+                }
+            }
+        }
     }
 
     .counter-field {
@@ -179,10 +240,14 @@ h1 {
     .counter-data {
         @include fontSize($h24);
         font-weight: 500;
-        margin: 5px 0;
+        margin: 5px auto;
         border: 1px solid #e7e7e7;
         width: 135px;
         padding: 10px 5px !important;
+
+        @include mediaWidth($ipad) {
+            width: 100%;
+        }
     }
 }
 
@@ -199,6 +264,10 @@ h1 {
     //Button wrapper
     .wct-btns-wrapper {
         padding: 10px 15px;
+        
+        @include mediaWidth($ipad) {
+            text-align: center;
+        }
 
         .button-gp {
             display: inline-block;
@@ -279,9 +348,17 @@ h1 {
     flex-wrap: wrap;
     background-color: $grey-light;
 
+    @include mediaWidth($ipad) {
+        margin: 0 !important;
+    }
+
     .converter-block {
         @include flexBasis(25%);
         padding: 5px 10px;
+
+        @include mediaWidth($ipad) {
+            @include flexBasis(50%);
+        }
 
         label {
             display: block;
@@ -309,6 +386,23 @@ h1 {
 
         >span {
             font-weight: normal;
+        }
+    }
+}
+
+
+//WordFrequency
+#wordFrequency {
+    height: auto !important;
+    max-height: 600px !important;
+    padding: 15px;
+    
+    .frequency {
+        td {
+            @include fontSize($h12);
+            font-weight: 500;
+            color: $black;
+            border: 0;
         }
     }
 }
@@ -378,27 +472,32 @@ h1 {
 /*--------------Sidebar------------------*/
 //Recent articles
 .wct-recent-articles {
+    border-bottom: 1px solid #ccc;
+
     .thumbnail-box-in {
         @include displayflex();
         
         >a {
-            @include flexBasis(50%);
+            @include flexBasis(40%);
+            height: 85px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin: 0 !important;
+            }
         }
 
         .caption {
-            @include flexBasis(50%);
+            @include flexBasis(60%);
+            padding-left: 15px;
             
             a {
                 @include fontSize($h16);
                 color: $black;
                 font-weight: 500;
-                overflow: hidden;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
             }
 
             h5 {
@@ -407,5 +506,30 @@ h1 {
                 font-weight: 500;
             }
         }
+    }
+}
+
+.wct-faq-container {
+    padding: 20px;
+    background-color: $grey-light;
+
+    p {
+        @include fontSize($h15);
+        line-height: 1.4;
+        color: $black;
+    }
+}
+
+
+//About
+.elementor-element-811ee08 {
+    margin-top: 35px;
+}
+
+.wct-about {
+    p {
+        @include fontSize($h15);
+        line-height: 1.4;
+        color: $black;
     }
 }
