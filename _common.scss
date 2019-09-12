@@ -30,7 +30,7 @@
         color: $topheader-grey;
 
         &:hover {
-            color: $topheader-grey * 1.5;
+            color: #cfd2d6;
         }
     }
 }
@@ -135,6 +135,14 @@ h1 {
     }
 }
 
+.sidebar-title {
+    margin-bottom: 10px !important;
+
+    h3 {
+        @include fontSize($h22);
+    }
+}
+
 
 
 
@@ -172,7 +180,7 @@ h1 {
         @include fontSize($h24);
         font-weight: 500;
         margin: 5px 0;
-        border: 1px solid $grey-light * 0.9;
+        border: 1px solid #e7e7e7;
         width: 135px;
         padding: 10px 5px !important;
     }
@@ -200,7 +208,7 @@ h1 {
                 color: $black;
                 text-transform: capitalize;
                 border-radius: 5px;
-                background-image: linear-gradient(#fff, $grey-light* 1.02);
+                background-image: linear-gradient(#fff, #dddddd);
                 box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
                 vertical-align: middle;
     
@@ -317,6 +325,70 @@ h1 {
     }
     
     article {
+        .post-grid-thumbnail {
+            margin: 0;
+            width: 100%;
+            height: 270px;
+            @include displayflex();
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
 
+            >a {
+                width: 100%;
+                height: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .post-grid-text-wrap {
+            .title {
+                text-align: left;
+                @include fontSize($h22);
+                color: $black;
+                font-weight: 500;
+            }
+
+            .post-grid-meta {
+                text-align: left;
+                @include fontSize($h13);
+                color: #ccc;
+
+                span {
+                    &:nth-of-type(1) {
+                        //@include displayIcon(15px);
+                    }
+
+                    &:nth-of-type(2) {
+                        //@include displayIcon(15px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*--------------Sidebar------------------*/
+//Recent articles
+.wct-recent-articles {
+    .thumbnail-box-in {
+        @include displayflex();
+        
+        >a {
+            @include flexBasis(50%);
+        }
+
+        .caption {
+            h5 {
+                @include fontSize($h16);
+            }
+        }
     }
 }
