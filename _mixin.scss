@@ -1,0 +1,163 @@
+@import '_value';
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin displayflex($important:false){
+	@if $important == true{
+		display: -ms-flexbox!important; display: -webkit-flex!important; display: flex!important;
+	}@else{
+		display: -ms-flexbox; display: -webkit-flex; display: flex;
+	}
+}
+
+
+@mixin flexBasis($size){
+	flex-basis: $size;
+	-moz-flex-basis: $size;
+	-webkit-flex-basis: $size;
+	@if type-of($size) != number{
+		max-width: none;
+	} @else{
+		max-width: $size;
+	}
+}
+
+@mixin fontSize($size,$important:false){
+	@if $important == true{
+		font-size:$size!important;
+		font-family: $family !important;
+	line-height: $size+0.2 !important;
+	}@else{
+		font-size:$size;
+		font-family: $family;
+		line-height: $size+0.2;
+	}
+}
+
+@mixin displayInLineBlock($pos){
+	display:inline-block;
+	vertical-align: $pos;
+}
+
+
+@mixin displayIcon($width,$height,$img,$my_url:$icon_url,$turn:before){
+	position:relative;
+	&:#{$turn}{
+		content: "";
+		background:url('#{$my_url}#{$img}') no-repeat left top /100% auto;
+		position:absolute;
+		display:block;
+		width:$width;
+		height:$height;
+		top:50%;
+		@if $turn == before{
+		left:0;
+		} @else {
+			right:0;
+		}
+		margin-top:-$height/2;
+	}
+}
+
+@mixin boxShadow($type){
+	box-shadow: $type;
+	-moz-box-shadow:$type;
+	-webkit-box-shadow:$type;
+}
+
+
+@mixin mediaWidth($type){
+	@media (max-width:$type){
+		@content;
+	}
+}
+
+@mixin displayNone($important:'false'){
+	@if $important == 'true'{
+		display:none!important ;
+		visibility: hidden!important;
+	} @else{
+		display:none;
+		visibility: hidden;
+	}
+}
+
+
+@mixin placeholder($color){
+	&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: $color;
+	}
+	&::-moz-placeholder { /* Firefox 19+ */
+	  color: $color;
+	}
+	&:-ms-input-placeholder { /* IE 10+ */
+	  color: $color;
+	}
+	&:-moz-placeholder { /* Firefox 18- */
+	  color: $color;
+	}
+}
+
+
+@mixin grey-line($size, $color, $line:'top'){
+	margin-#{$line}:$size;
+	padding-#{$line}:$size;
+	border-#{$line}:1px solid $color;
+}
+
+@mixin setfilter($color){
+	@include ws-filter(map-get($color,brightness),map-get($color,sepia),map-get($color,hue-rotate),map-get($color,saturate));
+}
+
+@mixin filter($brightness,$sepia,$hue-rotate,$saturate){
+	filter: brightness($brightness) sepia($sepia) hue-rotate($hue-rotate) saturate($saturate);
+	-webkit-filter:  brightness($brightness) sepia($sepia) hue-rotate($hue-rotate) saturate($saturate);
+	-moz-filter:  brightness($brightness) sepia($sepia) hue-rotate($hue-rotate) saturate($saturate);
+}
+
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: #ffffff){
+	  overflow: hidden;
+            height: $lineHeight * $lineCount;
+            line-height: $lineHeight;
+
+        &:before {
+            content:"";
+            float: left;
+            width: 5px; 
+          height: $lineHeight * $lineCount; }
+
+        & > *:first-child {
+            float: right;
+            width: 100%;
+            margin-left: -5px; }        
+
+        &:after {
+            content: "...";  
+
+            box-sizing: content-box;
+            -webkit-box-sizing: content-box;
+            -moz-box-sizing: content-box;
+
+            float: right; position: relative;
+            top: 0 - $lineHeight; left: 100%; 
+            width: 3rem; margin-left: -3rem;
+            padding-right: 5px;
+            
+            text-align: right;
+
+            background: -webkit-gradient(linear, left top, right top,
+				from(rgba(255, 255, 255, 0)), to(#{$bgColor}), color-stop(50%, #{$bgColor}));
+            background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});            
+            background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});
+            background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor});
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), #{$bgColor} 50%, #{$bgColor}); }
+}
+
+
+
+

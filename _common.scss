@@ -1,0 +1,322 @@
+@import '_font';
+@import '_value';
+@import '_mixin';
+
+* {
+    font-size: 10px;
+    font-family: $family;
+    vertical-align: middle;
+}
+
+
+/*--------------Top Header------------------*/
+#pre-header {
+    background-color: $black_2;
+    color: $topheader-grey;
+    padding: 0 $desktop-padding;
+
+    #pre-header-core {
+        max-width: 100%;
+    }
+}
+.top-header {
+    width: 100%;
+    @include displayflex();
+    padding: 10px 0;
+
+    a,i {
+        font-size: $h14;
+        line-height: $h16;
+        color: $topheader-grey;
+
+        &:hover {
+            color: $topheader-grey * 1.5;
+        }
+    }
+}
+
+.social-icons-gp {
+    @include fontSize($h14);
+    @include flexBasis(50%);
+    color: $topheader-grey;
+    text-align: left;
+
+    a {
+        margin-right: 10px;
+    }
+}
+
+.page-link-gp {
+    @include fontSize($h14);
+    @include flexBasis(50%);
+    color: $topheader-grey;
+    text-align: right;
+
+    a {
+        margin-left: 10px;
+    }
+}
+
+
+/*--------------Header------------------*/
+//Header
+#header-core {
+    padding: 0 $desktop-padding;
+}
+
+
+/*--------------Menu------------------*/
+//Brand logo
+#logo {
+    margin: 15px auto 0;
+    height: 100%;
+
+    img {
+        max-height: 45px;
+    }
+} 
+
+.menu {
+    position: relative;
+}
+
+.menu-main {
+    border: 0;
+}
+
+.menu-item {
+    @include fontSize($h16);
+    color: $black;
+    background-color: #fff;
+
+    & .current {
+        color: #fff;
+        background-color: $blue;
+    }
+}
+ 
+#header .header-links > ul > li a {
+    padding: 30px 20px;
+    @include fontSize($h16);
+    font-weight: 500;
+    color: $black;
+    background-color: #fff;
+}
+
+.current_page_item {
+    a {
+        background-color: $blue !important;
+
+        span {
+            color: #fff;
+        }
+    }
+}
+
+
+
+/*--------------Page title------------------*/
+h1 {
+    @include fontSize($h36);
+    color: $black;
+    text-transform: capitalize;
+}
+
+//Custom title
+.page-title {
+    color: $black !important;
+}
+
+.section-title {
+    margin-bottom: 10px !important;
+
+    h3 {
+        @include fontSize($h36);
+    }
+}
+
+
+
+
+/*--------------Counter Tool------------------*/
+//Counter KPI table
+.wct-results {
+    margin: 0 !important;
+}
+
+.counter-info-block {
+    padding: 15px 20px;
+    background-color: #fff;
+    border: 1px solid $grey-light;
+    border-bottom: 0;
+
+    thead {
+        td {
+            padding-bottom: 0;
+        }
+    }
+
+    .counter-table {
+        margin: 0;
+        border-spacing: 10px;
+        border-collapse: separate;
+    }
+
+    .counter-field {
+        @include fontSize($h14);
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .counter-data {
+        @include fontSize($h24);
+        font-weight: 500;
+        margin: 5px 0;
+        border: 1px solid $grey-light * 0.9;
+        width: 135px;
+        padding: 10px 5px !important;
+    }
+}
+
+
+//Counter wrapper
+.word-counter-wrapper {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $grey-light;
+}
+
+.word-editor-wrapper {
+
+    //Button wrapper
+    .wct-btns-wrapper {
+        padding: 10px 15px;
+
+        .button-gp {
+            display: inline-block;
+    
+            > button {
+                @include fontSize($h14);
+                color: $black;
+                text-transform: capitalize;
+                border-radius: 5px;
+                background-image: linear-gradient(#fff, $grey-light* 1.02);
+                box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+                vertical-align: middle;
+    
+                &:hover {
+                    box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+                }
+
+                >img {
+                    width: auto;
+                    height: 20px;
+                    margin-top: -3px;
+                }
+            }
+        }
+
+    }
+
+    //Rich editor 
+    .rich-editor-block {
+        padding: 10px 15px;
+
+        >textarea {
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 20px 15px;
+            @include fontSize($h14);
+            color: $black;
+        }
+    }
+}
+
+//Score wrapper
+.score-section {
+    margin-bottom: 25px;
+}
+
+.wct-scores {
+    .score-wrapper {
+        @include displayflex();
+        padding: 10px 0;
+
+        .score-field {
+            @include fontSize($h15);
+            font-weight: 700;
+            @include flexBasis(auto);
+            margin-right: 15px;
+        }
+
+        .score-value {
+            @include fontSize($h15);
+            font-weight: 500;
+            color: #ccc;
+            border-bottom: 1px solid #ccc;
+            @include flexBasis(auto);
+            flex-grow: 1;
+            text-align: right;
+        }
+    }
+}
+
+.wct-wppo {
+    margin-bottom: 5px !important;
+}
+
+.converter-wrapper {
+    @include displayflex();
+    flex-wrap: wrap;
+    background-color: $grey-light;
+
+    .converter-block {
+        @include flexBasis(25%);
+        padding: 5px 10px;
+
+        label {
+            display: block;
+            @include fontSize($h15);
+            font-weight: 500;
+            color: $black;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            border: 1px solid $grey-normal;
+            background: #fff;
+            @include fontSize($h14);
+            width: 100%;
+        }
+    }
+}
+
+.wct-wpp {
+    #totalCount1 {
+        padding: 10px;
+        @include fontSize($h14);
+        font-weight: 500;
+        color: $black;
+
+        >span {
+            font-weight: normal;
+        }
+    }
+}
+
+
+
+
+/*--------------Article------------------*/
+
+//article title
+.wct-feat-article {
+    .wpcap-grid-container {
+
+    }
+    
+    article {
+
+    }
+}
