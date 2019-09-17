@@ -1,5 +1,5 @@
 #pre-header-core, #header-core, #content-core, #footer-core, #sub-footer-core, #sub-footer-widgets, #sub-footer-close, #notification-core, #intro-core, #introaction-core, #outroaction-core, .wrap-safari {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 
 div.elementor-column:first-child, div.elementor-column:last-child, .elementor-element-29870f8 > div {
