@@ -116,12 +116,17 @@
     background-color: #fff;
 }
 
-.current_page_item {
+.current_page_item, .current-menu-item {
     a {
         background-color: $blue !important;
+        color: #fff !important;
 
         span {
-            color: #fff;
+            color: #fff !important;
+        }
+
+        &:after {
+            color: #fff !important;
         }
     }
 }
