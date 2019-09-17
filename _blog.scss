@@ -1,0 +1,150 @@
+@import '_font';
+@import '_value';
+@import '_mixin';
+
+.page-id-168 {
+
+    //Article grid
+    .wct-blog-postGrid {
+        border-bottom: 1px solid #ccc;
+
+        .thumbnail-box-in {
+            @include displayflex();
+            flex-wrap: wrap;
+            
+            >a {
+                @include flexBasis(100%);
+                height: 300px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    margin: 0 !important;
+                }
+            }
+
+            .caption {
+                @include flexBasis(100%);
+                
+                a {
+                    @include fontSize($h22);
+                    color: $black;
+                    font-weight: 500;
+                }
+
+                h3 {
+                    @include fontSize($h22);
+                    color: $black;
+                    font-weight: 500;
+                }
+            }
+
+            .pe-creation-date, .pe-author {
+                display: inline-block;
+                text-align: left;
+                @include fontSize($h13);
+                color: #707070;
+                padding-left: 20px;
+                
+                &:before {
+                    filter: brightness(0.8);
+                }
+            }
+
+            .pe-creation-date {
+                @include displayIcon(15px, 15px, "Date.svg", "http://wordcounttool.dev-ops.xyz/wp-content/uploads/2019/09/");
+            }
+
+            .pe-author {
+                margin-left: 10px;
+                @include displayIcon(15px, 15px, "Author_s.svg", "http://wordcounttool.dev-ops.xyz/wp-content/uploads/2019/09/");
+            }
+        }
+    }
+
+
+    //Recent
+    .wct-recent {
+        li {
+            width: 100%;
+        }
+
+        .thumbnail-box-in {
+            @include displayflex();
+            width: 100%;
+
+            @include mediaWidth($ipad) {
+                flex-wrap: wrap;
+            }
+            
+            >a {
+                @include flexBasis(25%);
+                height: 150px;
+                overflow: hidden;
+
+                @include mediaWidth($ipad) {
+                    @include flexBasis(100%);
+                }
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    margin: 0 !important;
+                }
+            }
+    
+            .caption {
+                @include flexBasis(75%);
+                padding-left: 15px;
+
+                @include mediaWidth($ipad) {
+                    @include flexBasis(100%);
+                    padding: 10px 0 20px;
+                }
+                
+                a {
+                    @include fontSize($h16);
+                    color: $black;
+                    font-weight: 500;
+                }
+    
+                .pe-recent-posts-title-tag {
+                    @include fontSize($h22);
+                    color: $black;
+                    font-weight: 500;
+                }
+
+                .pe-creation-date, .pe-author {
+                    display: inline-block;
+                    text-align: left;
+                    @include fontSize($h13);
+                    color: #707070;
+                    padding-left: 20px;
+                    
+                    &:before {
+                        filter: brightness(0.8);
+                    }
+                }
+    
+                .pe-creation-date {
+                    @include displayIcon(15px, 15px, "Date.svg", "http://wordcounttool.dev-ops.xyz/wp-content/uploads/2019/09/");
+                }
+    
+                .pe-author {
+                    margin-left: 10px;
+                    @include displayIcon(15px, 15px, "Author_s.svg", "http://wordcounttool.dev-ops.xyz/wp-content/uploads/2019/09/");
+                }
+
+                .excerpt-text {
+                    @include fontSize($h15);
+                    color: $black;
+                    line-height: 1.4;
+                    padding-top: 15px;
+                }
+            }
+        }
+    }
+}
